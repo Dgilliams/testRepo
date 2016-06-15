@@ -1,0 +1,143 @@
+{
+  "project_info": {
+    "project_number": "375789979859",
+    "firebase_url": "https://sf-motorcycles.firebaseio.com",
+    "project_id": "sf-motorcycles",
+    "storage_bucket": "sf-motorcycles.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375789979859:android:b27d867d02fd3204",
+        "android_client_info": {
+          "package_name": "com.statefarm.motorcycles.motorcyclebackend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375789979859-bibk5tc3hljmtvfu5k6qqgmujsmt60c4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.statefarm.motorcycles.motorcyclebackend",
+            "certificate_hash": "3E0A305C43DF3BFCB1811725C4625FD9D0F14DF0"
+          }
+        },
+        {
+          "client_id": "375789979859-m165ca2hldpmhrg0eflnb21h6j1hv2hl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjwb_QrcLovuU6fppO2JeoHt9e_geOtmc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375789979859-m165ca2hldpmhrg0eflnb21h6j1hv2hl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375789979859:android:302991268c6d7ca5",
+        "android_client_info": {
+          "package_name": "com.statefarm.motorcycle.ridesafeandsave"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375789979859-3p2o0sv27e6p8j7uld3hll4tq6ri57r2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.statefarm.motorcycle.ridesafeandsave",
+            "certificate_hash": "66535A4AAD55A2D0B207C571B39FD3F277BF8DB3"
+          }
+        },
+        {
+          "client_id": "375789979859-m165ca2hldpmhrg0eflnb21h6j1hv2hl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjwb_QrcLovuU6fppO2JeoHt9e_geOtmc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375789979859-m165ca2hldpmhrg0eflnb21h6j1hv2hl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375789979859:android:6f8b871babab18ab",
+        "android_client_info": {
+          "package_name": "com.statefarm.motorcycles.ridesafeandsave"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375789979859-j2eja18i7v3flsp9pj0spjc5p4gvqs06.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.statefarm.motorcycles.ridesafeandsave",
+            "certificate_hash": "66535A4AAD55A2D0B207C571B39FD3F277BF8DB3"
+          }
+        },
+        {
+          "client_id": "375789979859-m165ca2hldpmhrg0eflnb21h6j1hv2hl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjwb_QrcLovuU6fppO2JeoHt9e_geOtmc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375789979859-m165ca2hldpmhrg0eflnb21h6j1hv2hl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
