@@ -101,8 +101,10 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 return true;
-            case R.id.help:
+            case R.id.health:
+                startActivity(new Intent(MainActivity.this, Diagnostics.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -175,6 +177,12 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
             }
         });
 
+        money.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                countingMoneyAnimation(money, actualMoney);
+            }
+        });
 
         lastRideCard.setOnClickListener(new View.OnClickListener() {
             @Override
