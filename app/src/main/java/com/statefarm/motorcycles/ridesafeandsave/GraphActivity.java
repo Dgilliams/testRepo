@@ -12,6 +12,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.FrameLayout;
+
+import com.google.firebase.database.FirebaseDatabase;
+import com.robinhood.spark.SparkAdapter;
+
+import java.util.ArrayList;
 
 public class GraphActivity extends AppCompatActivity {
 
@@ -21,18 +27,22 @@ public class GraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_graph);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        TabLayout tablayout = (TabLayout) findViewById(R.id.tabLayout);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        if (viewPager != null) {
-            viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
-        }
-        
-        if (tablayout != null) {
-            tablayout.setupWithViewPager(viewPager);
-        }
+
+
+//        TabLayout tablayout = (TabLayout) findViewById(R.id.tabLayout);
+//        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+//
+//
+//        if (viewPager != null) {
+//            viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+//        }
+//
+//        if (tablayout != null) {
+//            tablayout.setupWithViewPager(viewPager);
+//        }
 
 
     }
@@ -58,5 +68,6 @@ public class GraphActivity extends AppCompatActivity {
             return 2;
         }
     }
+
 
 }

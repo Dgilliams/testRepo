@@ -1,5 +1,6 @@
 package com.statefarm.motorcycles.ridesafeandsave;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //HERE
-                Toast.makeText(getApplicationContext(), "CLICK", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "CLICK", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MainActivity.this, GraphActivity.class));
             }
         });
 
@@ -85,12 +87,12 @@ public class MainActivity extends AppCompatActivity {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
 
-        // Adding child data
+        // Adding child speedData
         listDataHeader.add("6/15/2016");
         listDataHeader.add("6/15/2016");
         listDataHeader.add("6/15/2016");
 
-        // Adding child data
+        // Adding child speedData
         List<String> header1 = new ArrayList<String>();
         header1.add("Start Time: 5:00 PM\t ");
         header1.add("End Time: 5:15 PM\t ");
@@ -115,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         header3.add("Top Speed: 35 MPH\t");
         header3.add("Top RPM: 5098\t");
 
-        listDataChild.put(listDataHeader.get(0), header1); // Header, Child data
+        listDataChild.put(listDataHeader.get(0), header1); // Header, Child speedData
         listDataChild.put(listDataHeader.get(1), header2);
         listDataChild.put(listDataHeader.get(2), header3);
 

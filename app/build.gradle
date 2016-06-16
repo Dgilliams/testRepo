@@ -28,6 +28,7 @@ dependencies {
     compile 'com.firebaseui:firebase-ui:0.4.1'
     compile 'com.android.support:percent:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.robinhood.spark:spark:1.1.1'
 }
 
 apply plugin: 'com.google.gms.google-services'
