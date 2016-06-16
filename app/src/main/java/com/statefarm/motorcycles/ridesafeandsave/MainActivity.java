@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                incrementMoney();
+                //incrementMoney();
             }
         });
     }
