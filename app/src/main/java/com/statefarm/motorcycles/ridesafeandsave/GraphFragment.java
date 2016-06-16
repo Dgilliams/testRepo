@@ -1,6 +1,7 @@
 package com.statefarm.motorcycles.ridesafeandsave;
 
 
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -61,11 +65,12 @@ public class GraphFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_blank, container, false);
+        View v = inflater.inflate(R.layout.fragment_blank, container, false);
         speedSparkView = (SparkView) v.findViewById(R.id.sparkview1);
         accelSparkView = (SparkView) v.findViewById(R.id.sparkview2);
         return v;
     }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -81,15 +86,15 @@ public class GraphFragment extends Fragment {
                 String key = dataSnapshot.getKey();
                 Double speed = dataSnapshot.child("speed").getValue(Double.class);
                 Double accel = dataSnapshot.child("acceleration").child("z").getValue(Double.class);
-                Log.d("butts", ""+speed);
+                Log.d("butts", "" + speed);
 
-                Float y = Float.valueOf(""+speed);
-                if(y != null) {
+                Float y = Float.valueOf("" + speed);
+                if (y != null) {
                     speedData.add(y);
                 }
 
-                Float z = Float.valueOf(""+accel);
-                if(z != null) {
+                Float z = Float.valueOf("" + accel);
+                if (z != null) {
                     accelData.add(z * -1);
                 }
 
@@ -119,6 +124,7 @@ public class GraphFragment extends Fragment {
         });
 
     }
+
 
 
     public class MyAdapter extends SparkAdapter {

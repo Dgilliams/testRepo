@@ -80,7 +80,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_below="@id/points_text"
                         android:paddingTop="8dp"
-                        android:text="13,745 mi"
+                        android:text="6,745 mi"
                         android:textSize="30sp" />
 
                     <TextView
