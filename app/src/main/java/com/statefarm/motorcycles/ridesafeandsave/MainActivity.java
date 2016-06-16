@@ -48,9 +48,13 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
     private PercentFrameLayout badge;
     private CardView overlay;
     private CardView dashboard;
-    private TextView money;
 
+    private TextView money;
     private int actualMoney;
+
+    private TextView scoreText;
+    private int scoreValue;
+
 
 
     @Override
@@ -69,8 +73,12 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         dashboard = (CardView) findViewById(R.id.dashboard_totals_card);
 
         badge = (PercentFrameLayout) findViewById(R.id.dashboard_user_badge);
+
         money = (TextView) findViewById(R.id.money_saved);
         actualMoney = 162;
+
+        scoreText = (TextView) findViewById(R.id.dashboard_points_accumulated);
+        scoreValue = 2415;
 
         initOnClickListeners();
 
@@ -136,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
             @Override
             public void onClick(View v) {
                 circularReveal(R.id.dashboard_totals_card_overlay);
+                incrementScore();
             }
         });
 
@@ -254,7 +263,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
     }
 
 
-    private void startCountingMoneyAnimation(final TextView textView, int to) {
+    private void countingMoneyAnimation(final TextView textView, int to) {
         ValueAnimator animator = new ValueAnimator();
         animator.setObjectValues(0, to);
         animator.setDuration(1000);
@@ -266,9 +275,28 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         animator.start();
     }
 
+    private void scoreAnimation(final TextView textView, int to) {
+        ValueAnimator animator = new ValueAnimator();
+        animator.setObjectValues(0, to);
+        animator.setDuration(1000);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                textView.setText("" + (int) animation.getAnimatedValue() + "pts");
+            }
+        });
+        animator.start();
+    }
+
     public void incrementMoney(){
         actualMoney += 4;
-        startCountingMoneyAnimation(money, actualMoney);
+        countingMoneyAnimation(money, actualMoney);
     }
+
+    public void incrementScore(){
+        scoreValue += 15;
+        scoreAnimation(scoreText, scoreValue);
+    }
+
+
 
 }
