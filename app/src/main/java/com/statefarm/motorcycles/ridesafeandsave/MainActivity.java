@@ -2,6 +2,7 @@ package com.statefarm.motorcycles.ridesafeandsave;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.support.percent.PercentFrameLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.animation.AnimationUtils;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,6 +26,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,12 +38,19 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
 
     private ExpandableListAdapter listAdapter;
     private ExpandableListView listView;
+
     private List<String> listDataHeader;
     private HashMap<String, List<String>> listDataChild;
+
     private View lastRideCard;
     private ScrollView scrollView;
+
     private PercentFrameLayout badge;
     private CardView overlay;
+    private CardView dashboard;
+    private TextView money;
+
+    private int actualMoney;
 
 
     @Override
@@ -53,34 +64,22 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         listView.setAdapter(listAdapter);
         lastRideCard = findViewById(R.id.last_ride_card);
         scrollView = (ScrollView) findViewById(R.id.scroll_view);
+
         overlay = (CardView) findViewById(R.id.dashboard_totals_card_overlay);
+        dashboard = (CardView) findViewById(R.id.dashboard_totals_card);
+
         badge = (PercentFrameLayout) findViewById(R.id.dashboard_user_badge);
+        money = (TextView) findViewById(R.id.money_saved);
+        actualMoney = 162;
 
-        badge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                circularReveal(R.id.dashboard_totals_card_overlay);
-            }
-        });
+        initOnClickListeners();
 
-        overlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                circularHide(R.id.dashboard_totals_card_overlay);
-            }
-        });
+    }
 
-
-
-        lastRideCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //HERE
-                //Toast.makeText(getApplicationContext(), "CLICK", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(MainActivity.this, GraphActivity.class));
-            }
-        });
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        incrementMoney();
     }
 
     @Override
@@ -131,6 +130,40 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         }
     };
 
+    public void initOnClickListeners() {
+
+        badge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                circularReveal(R.id.dashboard_totals_card_overlay);
+            }
+        });
+
+        overlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                circularHide(R.id.dashboard_totals_card_overlay);
+                incrementMoney();
+            }
+        });
+
+
+        lastRideCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, GraphActivity.class));
+            }
+        });
+
+        dashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                incrementMoney();
+            }
+        });
+    }
+
+
     public void retrieveDataFromFirebase() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
@@ -180,7 +213,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         int cy = myView.getHeight() / 2;
 
 // get the final radius for the clipping circle
-        float finalRadius = (float) cx*2;
+        float finalRadius = (float) cx * 2;
 
 // create the animator for this view (the start radius is zero)
         Animator anim =
@@ -191,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         anim.start();
     }
 
-    public void circularHide(int id){
+    public void circularHide(int id) {
         // previously visible view
         final View myView = findViewById(id);
 
@@ -218,6 +251,24 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
 // start the animation
         anim.start();
 
+    }
+
+
+    private void startCountingMoneyAnimation(final TextView textView, int to) {
+        ValueAnimator animator = new ValueAnimator();
+        animator.setObjectValues(0, to);
+        animator.setDuration(1000);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                textView.setText("$" + (int) animation.getAnimatedValue() + ".20");
+            }
+        });
+        animator.start();
+    }
+
+    public void incrementMoney(){
+        actualMoney += 4;
+        startCountingMoneyAnimation(money, actualMoney);
     }
 
 }

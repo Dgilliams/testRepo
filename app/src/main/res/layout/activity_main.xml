@@ -57,11 +57,11 @@
                         android:textAlignment="center" />
 
                     <TextView
-                        android:id="@+id/current_score"
+                        android:id="@+id/money_saved"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:text="$104.20"
+                        android:text="$142.01"
                         android:textColor="#85bb65"
                         android:textSize="40sp" />
 
@@ -70,7 +70,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_below="@id/current_score"
+                        android:layout_below="@id/money_saved"
                         android:text="Saved this year" />
 
                     <TextView
@@ -80,7 +80,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_below="@id/points_text"
                         android:paddingTop="8dp"
-                        android:text="13745 mi"
+                        android:text="13,745 mi"
                         android:textSize="30sp" />
 
                     <TextView
@@ -262,7 +262,7 @@
 
 
                     <TextView
-                        android:id="@+id/dashboard_money_saved_value"
+                        android:id="@+id/dashboard_points_accumulated"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -272,11 +272,11 @@
                         android:textSize="40sp" />
 
                     <TextView
-                        android:id="@+id/dashboard_money_saved_title"
+                        android:id="@+id/dashboard_points_accumulated_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_below="@id/dashboard_money_saved_value"
+                        android:layout_below="@id/dashboard_points_accumulated"
                         android:text="Points Accumulated"
                         android:layout_marginBottom="32dp"/>
 
