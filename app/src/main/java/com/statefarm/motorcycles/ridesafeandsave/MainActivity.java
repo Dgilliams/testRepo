@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.AnimationUtils;
@@ -55,8 +58,6 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
     private TextView scoreText;
     private int scoreValue;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,13 +82,31 @@ public class MainActivity extends AppCompatActivity implements ExpandableListVie
         scoreValue = 2415;
 
         initOnClickListeners();
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         incrementMoney();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu( Menu menu ){
+        MenuInflater inflater =  getMenuInflater();
+        inflater.inflate(R.menu.home_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.settings:
+                return true;
+            case R.id.help:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
