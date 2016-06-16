@@ -6,195 +6,288 @@
     android:layout_height="match_parent"
     tools:context="com.statefarm.motorcycles.ridesafeandsave.MainActivity">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/dashboard_totals_card"
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="16dp"
-        app:cardCornerRadius="4dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp">
-
-            <android.support.percent.PercentFrameLayout
-                android:id="@+id/dashboard_user_badge"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_alignParentStart="true"
-                    android:scaleType="centerCrop"
-                    android:src="@android:drawable/btn_star"
-                    app:layout_aspectRatio="100%"
-                    app:layout_widthPercent="100%" />
-
-            </android.support.percent.PercentFrameLayout>
-
-            <TextView
-                android:id="@+id/dashboard_user_ranking"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/dashboard_user_badge"
-                android:text="Silver Class"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/dashboard_money_saved_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="$104.20"
-                android:textColor="#85bb65"
-                android:textSize="40sp" />
-
-            <TextView
-                android:id="@+id/dashboard_money_saved_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/dashboard_money_saved_value"
-                android:text="Saved this year" />
-
-            <TextView
-                android:id="@+id/dashboard_total_miles_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/dashboard_money_saved_title"
-                android:paddingTop="8dp"
-                android:text="10420 mi"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/dashboard_total_miles_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/dashboard_total_miles_value"
-                android:text="Miles driven this year" />
+            android:layout_height="wrap_content">
 
 
-            <LinearLayout
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/dashboard_totals_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/dashboard_user_ranking"
-                android:orientation="vertical">
+                android:layout_margin="8dp"
+                android:padding="16dp"
+                app:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp">
+
+                    <android.support.percent.PercentFrameLayout
+                        android:id="@+id/dashboard_user_badge"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp">
+
+                        <ImageView
+                            android:id="@+id/dashboard_user_badge_image"
+                            android:layout_alignParentStart="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/badge"
+                            app:layout_aspectRatio="100%"
+                            app:layout_widthPercent="100%" />
+
+                    </android.support.percent.PercentFrameLayout>
+
+                    <TextView
+                        android:id="@+id/dashboard_user_ranking"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dashboard_user_badge"
+                        android:layout_marginStart="8dp"
+                        android:text="Silver Class Rider"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/current_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="$104.20"
+                        android:textColor="#85bb65"
+                        android:textSize="40sp" />
+
+                    <TextView
+                        android:id="@+id/points_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/current_score"
+                        android:text="Saved this year" />
+
+                    <TextView
+                        android:id="@+id/dashboard_total_miles_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/points_text"
+                        android:paddingTop="8dp"
+                        android:text="13745 mi"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/dashboard_total_miles_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/dashboard_total_miles_value"
+                        android:text="Miles driven this year" />
 
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dashboard_user_ranking"
+                        android:orientation="vertical">
 
 
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/last_ride_card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dashboard_totals_card"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:padding="16dp"
-        app:cardCornerRadius="4dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp">
-
-            <android.support.percent.PercentFrameLayout
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true">
-
-                <ImageView
-                    android:id="@+id/last_ride_badge"
-                    android:scaleType="centerCrop"
-                    android:src="@android:drawable/btn_star"
-                    app:layout_aspectRatio="100%"
-                    app:layout_widthPercent="100%" />
-
-            </android.support.percent.PercentFrameLayout>
-
-            <TextView
-                android:id="@+id/last_ride_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="Last Ride"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/last_ride_miles_driven"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/last_ride_title"
-                android:layout_marginBottom="4dp"
-                android:text="Miles Driven: " />
-
-            <TextView
-                android:id="@+id/last_ride_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/last_ride_miles_driven"
-                android:layout_marginBottom="4dp"
-                android:text="Date" />
-
-            <TextView
-                android:id="@+id/last_ride_length"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/last_ride_date"
-                android:layout_marginBottom="4dp"
-                android:text="Length: " />
+                    </LinearLayout>
 
 
-        </RelativeLayout>
+                </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+            </android.support.v7.widget.CardView>
 
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/previous_rides_card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/last_ride_card"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:padding="8dp"
-        app:cardCornerRadius="4dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="8dp">
-
-            <TextView
-                android:id="@+id/list_view_title"
+            <android.support.v7.widget.CardView
+                android:id="@+id/last_ride_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Previous Rides"
-                android:textSize="24dp"
-                />
+                android:layout_below="@id/dashboard_totals_card"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="16dp"
+                app:cardCornerRadius="4dp">
 
-            <ExpandableListView
-                android:layout_below="@id/list_view_title"
-                android:id="@+id/list_view"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/last_ride_badge"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="16dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/circle" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerInParent="true"
+                            android:layout_centerVertical="true"
+                            android:text="+15   "
+                            android:textColor="#FFFFFF"
+                            android:textSize="25sp" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/last_ride_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="Last Ride"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/last_ride_miles_driven"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/last_ride_title"
+                        android:layout_marginBottom="4dp"
+                        android:text="Miles Driven:\t\t34.7mi" />
+
+                    <TextView
+                        android:id="@+id/last_ride_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/last_ride_miles_driven"
+                        android:layout_marginBottom="4dp"
+                        android:text="Date: \t\t\t\t\t\t\t\tJune 15, 2016" />
+
+                    <TextView
+                        android:id="@+id/last_ride_length"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/last_ride_date"
+                        android:layout_marginBottom="4dp"
+                        android:text="Length: \t\t\t\t\t\t0h 30m" />
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/previous_rides_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/last_ride_card"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:padding="8dp"
+                app:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp">
+
+                    <TextView
+                        android:id="@+id/list_view_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Previous Rides"
+                        android:textSize="24dp" />
+
+                    <ExpandableListView
+                        android:id="@+id/list_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/list_view_title">
+
+                    </ExpandableListView>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/dashboard_totals_card_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="16dp"
+                app:cardBackgroundColor="#c0c0c0"
+                app:cardCornerRadius="4dp"
+                android:visibility="invisible"
                 >
 
-            </ExpandableListView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp">
+
+                    <android.support.percent.PercentFrameLayout
+                        android:id="@+id/dashboard_user_badge2"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp">
+
+                        <ImageView
+                            android:layout_alignParentStart="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/badge"
+                            app:layout_aspectRatio="100%"
+                            app:layout_widthPercent="100%" />
+
+                    </android.support.percent.PercentFrameLayout>
+                    <TextView
+                        android:id="@+id/dashboard_user_ranking2"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dashboard_user_badge2"
+                        android:layout_marginStart="8dp"
+                        android:text="Silver Class Rider"
+                        android:textAlignment="center" />
+
+
+                    <TextView
+                        android:id="@+id/dashboard_money_saved_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="2415pts"
+                        android:layout_marginTop="38dp"
+                        android:textColor="#ffffff"
+                        android:textSize="40sp" />
+
+                    <TextView
+                        android:id="@+id/dashboard_money_saved_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/dashboard_money_saved_value"
+                        android:text="Points Accumulated"
+                        android:layout_marginBottom="32dp"/>
+
+
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
 
 
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
-
+    </ScrollView>
 </RelativeLayout>

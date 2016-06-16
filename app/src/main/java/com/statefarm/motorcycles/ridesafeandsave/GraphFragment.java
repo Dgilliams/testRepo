@@ -178,7 +178,7 @@ public class GraphFragment extends Fragment {
 
         @Override
         public float getBaseLine() {
-            return -4.6 f;
+            return -4.6f;
         }
     }
 }
